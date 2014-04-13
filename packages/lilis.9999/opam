@@ -16,7 +16,7 @@ build: [
 ]
 build-doc: [[make "docs"]]
 remove: [
-  ["ocamlfind" "remove" "minicalc"]
+  ["ocamlfind" "remove" "calc"]
   ["ocamlfind" "remove" "lilis"]
   ["ocamlfind" "remove" "glilis"]
 ]
