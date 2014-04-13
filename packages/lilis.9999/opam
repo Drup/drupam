@@ -5,15 +5,16 @@ homepage: "http://drup.github.io/LILiS/dev/"
 license: "MIT"
 build: [
   ["./configure" "--prefix" prefix
-	   "--%{cairo2:enable}%-cairo"
 	   "--%{sequence:enable}%-sequence"
+	   "--disable-gen"
 	   "--%{cfstream:enable}%-cfstream"
+	   "--%{cairo2:enable}%-cairo"
 	   "--%{tyxml:enable}%-tyxml"
-	   "--%{cmdliner:enable}%-glilis-ex"]
+	   "--%{cmdliner:enable}%-executable"]
   [make]
   [make "install"]
 ]
-build-doc: [["ocaml" "setup.ml" "-doc"]]
+build-doc: [[make "docs"]]
 remove: [
   ["ocamlfind" "remove" "minicalc"]
   ["ocamlfind" "remove" "lilis"]
@@ -33,5 +34,5 @@ depopts: [
   "cfstream"
 ]
 conflicts: [
-  tyxml < 3.0.0
+  "tyxml" {< "3.0.0"}
 ]
