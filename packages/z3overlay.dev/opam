@@ -1,0 +1,18 @@
+opam-version: "1"
+maintainer: "drupyog@zoho.com"
+authors: ["Gabriel Radanne"]
+homepage: "https://github.com/Drup/ocaml-z3"
+license: "MIT"
+build: [
+  ["./configure" "--enable-optim" "--prefix" prefix]
+  [make]
+  [make "install"]
+]
+build-doc: [[make "docs"]]
+depends: [
+  "ocamlfind"
+  "z3"
+]
+remove: [
+  ["ocamlfind" "remove" "Z3overlay"]
+]
